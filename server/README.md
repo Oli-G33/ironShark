@@ -22,7 +22,7 @@
 
 - registerUser - issues POST to '/authentication/sign-up' - Registers new user.
 
-- logInUser - issues POST to '/authentication/sign-in' - Authenticates existing user.
+- logInUser - issues POST to '/authentication/login' - Authenticates existing user.
 
 - signOutUser - issues POST to '/authentication/sign-out' - Signs out user.
 
