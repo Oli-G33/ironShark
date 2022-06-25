@@ -18,17 +18,13 @@ const Navbar = () => {
 
       {(user && (
         <>
-          <aside>
-            <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
-            <button onClick={handleSignOut}>Sign Out</button>
-          </aside>
+          <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
+          <button onClick={handleSignOut}>Sign Out</button>
         </>
       )) || (
         <>
-          <aside>
-            <Link to="/log-in">Log In</Link>
-            <Link to="/sign-up">Sign Up</Link>
-          </aside>
+          <Link to="/log-in">Log In</Link>
+          <Link to="/sign-up">Sign Up</Link>
         </>
       )}
     </nav>

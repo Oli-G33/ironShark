@@ -19,7 +19,8 @@ const schema = new mongoose.Schema(
       required: true
     },
     picture: {
-      type: String
+      type: String,
+      default: '/images/DefaultUserImg.png'
     }
   },
   { timestamps: true }
