@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
-import SignUpPage from './pages/SignUpPage';
+import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
 import AddGamePage from './pages/AddGamePage';
 import EditGamePage from './pages/EditGamePage';
 import BookmarksPage from './pages/BookmarksPage';
-import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
+// import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import SearchPage from './pages/SearchPage';
 import AuthenticationContext from './context/authentication';
@@ -29,7 +29,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/sign-up" element={<RegisterPage />} />
           <Route path="/log-in" element={<LoginPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/error" element={<ErrorPage />} />

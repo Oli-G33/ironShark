@@ -17,7 +17,7 @@ const RegisterPage = () => {
   const { setUser } = useContext(AuthenticationContext);
 
   const handleRegistration = () => {
-    registerUser(user).then((data) => {
+    registerUser(user).then(data => {
       setUser(data.user);
       navigate('/');
     });

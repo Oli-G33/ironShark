@@ -12,26 +12,24 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
-<<<<<<< HEAD
 const gameRouter = require('./routes/game');
-=======
 const ImageKit = require('imagekit');
 
 const imagekit = new ImageKit({
-  urlEndpoint: "https://ik.imagekit.io/p8y8zbsn1",
+  urlEndpoint: 'https://ik.imagekit.io/p8y8zbsn1',
   publicKey: 'public_zuna+geOzioLn2fOkcxMCWNf+Qs=',
   privateKey: 'private_7d7yxwd8OFudu4LCost3weFJks0='
 });
->>>>>>> 9ddb3250f7b8c3463f529cac59c0df2d897542da
 
 const app = express();
 
-
 // allow cross-origin requests
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", 
-    "Origin, X-Requested-With, Content-Type, Accept");
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
   next();
 });
 
@@ -39,8 +37,6 @@ app.get('/authentication', function (req, res) {
   const result = imagekit.getAuthenticationParameters();
   res.send(result);
 });
-
-
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
