@@ -8,14 +8,13 @@
 - SignUpPage
 - LoginPage
 - ProfilePage: personal details (picture, email, name, password, age)
-<!-- - OtherUsersProfile:  -->
 - ProfileEditPage: Edit Profile
 - BookmarkPage: bookmark games, add to card button and link to single game page.
 - SingleGamePage: Title, Genres, screenshots, description, etc
 - SearchPage: AdvancedSearch filters (genre, title, platform, price)
-- ErrorPage: Catch
+- ErrorPage: Catch errors
 - AddGamePage: Form to sell game. Form includes title, genre, file/link of game, price, description, created by
-- EditGamePage:
+- EditGamePage
 
 ### Services
 

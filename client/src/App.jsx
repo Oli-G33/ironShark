@@ -5,29 +5,43 @@ import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
-import CartPage from './pages/CartPage';
+import AddGamePage from './pages/AddGamePage';
+import EditGamePage from './pages/EditGamePage';
 import BookmarksPage from './pages/BookmarksPage';
 import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import SearchPage from './pages/SearchPage';
+import AuthenticationContext from './context/authentication';
+import { useState, useEffect } from 'react';
+import { loadUserInformation } from './services/authentication';
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    loadUserInformation().then(data => {
+      setUser(data.user);
+    });
+  });
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/authentication/sign-up" element={<SignUpPage />} />
-        <Route path="/authentication/login" element={<LoginPage />} />
-        <Route path="/profile/:id" element={<ProfilePage />} />
-        <Route path="/error" element={<ErrorPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/bookmarks" element={<BookmarksPage />} />
-        <Route path="/game/:id" element={<SingleGamePage />} />
-        <Route path="/profile/edit" element={<ProfileEditPage />} />
-        <Route path="/search" element={<SearchPage />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthenticationContext.Provider value={{ user, setUser }}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/log-in" element={<LoginPage />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/add-game" element={<AddGamePage />} />
+          <Route path="/bookmarks" element={<BookmarksPage />} />
+          {/* <Route path="/game/:id" element={<SingleGamePage />} /> */}
+          <Route path="/profile/edit" element={<ProfileEditPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/edit-game" element={<EditGamePage />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthenticationContext.Provider>
   );
 };
 

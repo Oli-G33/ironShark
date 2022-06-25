@@ -20,7 +20,7 @@ router.post('/sign-up', (req, res, next) => {
     })
     .then((user) => {
       req.session.userId = user._id;
-      res.json({ user });
+      res.redirect('/profile/:id');
     })
     .catch((error) => {
       next(error);
@@ -55,6 +55,10 @@ router.post('/sign-in', (req, res, next) => {
 router.post('/sign-out', (req, res, next) => {
   req.session.destroy();
   res.json({});
+});
+
+router.get('/me', (req, res, next) => {
+  res.json({ user: req.user });
 });
 
 module.exports = router;
