@@ -14,13 +14,13 @@ const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
 const gameRouter = require('./routes/game');
 const ImageKit = require('imagekit');
+const profileRouter = require('./routes/profile');
 
 const imagekit = new ImageKit({
   urlEndpoint: 'https://ik.imagekit.io/p8y8zbsn1',
   publicKey: 'public_zuna+geOzioLn2fOkcxMCWNf+Qs=',
   privateKey: 'private_7d7yxwd8OFudu4LCost3weFJks0='
 });
-
 
 const app = express();
 
@@ -74,7 +74,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
-
+app.use('/profile', profileRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

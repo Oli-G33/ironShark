@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import './ProfilePage.scss';
 
 import AuthenticationContext from '../context/authentication';
 import { profileLoad } from '../services/profile';
@@ -13,7 +14,6 @@ const ProfilePage = () => {
   useEffect(() => {
     profileLoad(id).then(data => {
       setProfile(data.profile);
-      console.log(data.profile);
     });
   }, [id]);
 
@@ -23,8 +23,12 @@ const ProfilePage = () => {
     <div className="profile-page">
       {profile && (
         <header>
-          <img src={profile.picture} alt={profile.name} />
+          <img
+            src={profile.picture || './../../DefaultUserImg.png'}
+            alt={profile.name}
+          />
           <h1>{profile.name}</h1>
+          <h3>{profile.email}</h3>
         </header>
       )}
 
