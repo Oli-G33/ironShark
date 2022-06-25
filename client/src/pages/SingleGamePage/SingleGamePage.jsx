@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 
 const SingleGamePage = () => {
 
   const {gameInfo} = props;
 
-  const [games, setGames] = useState()
-  let {id}
+  const [game, setGame] = useState(null)
+  let {id} = useParams();
+
+  useEffect(() => {
+    getGame(id).then((gameData))
+  })
   
   return (
   <div>
