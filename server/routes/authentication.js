@@ -12,6 +12,7 @@ router.post('/sign-up', (req, res, next) => {
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
+      console.log('here');
       return User.create({
         name,
         email,
@@ -21,7 +22,8 @@ router.post('/sign-up', (req, res, next) => {
     })
     .then((user) => {
       req.session.userId = user._id;
-      res.redirect('/profile/:id');
+      // res.redirect(`/profile/:id'`);
+      res.json(user);
     })
     .catch((error) => {
       next(error);

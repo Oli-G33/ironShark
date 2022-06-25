@@ -19,6 +19,7 @@ const RegisterPage = () => {
   const handleRegistration = () => {
     registerUser(user).then(data => {
       setUser(data.user);
+      console.log(data);
       navigate('/');
     });
   };

@@ -2,7 +2,6 @@
 
 const express = require('express');
 
-const Game = require('./../models/game');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 

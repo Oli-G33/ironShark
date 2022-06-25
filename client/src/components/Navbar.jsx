@@ -6,7 +6,7 @@ import { signOutUser } from './../services/authentication';
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthenticationContext);
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     signOutUser().then(() => {
