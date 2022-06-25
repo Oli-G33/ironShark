@@ -7,7 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
 import CartPage from './pages/CartPage';
 import BookmarksPage from './pages/BookmarksPage';
-import SingleGamePage from './pages/SingleGamePage';
+import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import SearchPage from './pages/SearchPage';
 
