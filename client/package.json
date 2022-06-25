@@ -4,10 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
-<<<<<<< HEAD
-=======
-    "imagekit": "^3.2.5",
->>>>>>> 8009255847ac07bc6aa4044e3fd8a16e3d1f4c6c
     "imagekitio-react": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
