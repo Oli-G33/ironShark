@@ -12,6 +12,7 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
+const gameRouter = require('./routes/game');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/game', gameRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

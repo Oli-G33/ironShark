@@ -12,9 +12,10 @@
 - ProfileEditPage: Edit Profile
 - BookmarkPage: bookmark games, add to card button and link to single game page.
 - SingleGamePage: Title, Genres, screenshots, description, etc
-- CartPage: Purchase summary, Buy now button (redirects to Stripe payment page). When payment successful redirect to success page?
 - SearchPage: AdvancedSearch filters (genre, title, platform, price)
 - ErrorPage: Catch
+- AddGamePage: Form to sell game. Form includes title, genre, file/link of game, price, description, created by
+- EditGamePage:
 
 ### Services
 
@@ -86,6 +87,7 @@ game: ObjectId, ref: 'Game', required
 
 ## Wishlist
 
-- The user can sell games that already exist in the database
+- The user can sell their own games
 - mailchimp
 - google authentication
+- game ratings
