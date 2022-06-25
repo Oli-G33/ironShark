@@ -15,7 +15,11 @@ const schema = new mongoose.Schema({
   },
   passwordHashAndSalt: {
     type: String
-  }
+  },
+  picture: {
+    type: String
+  },
+  age: min
 });
 
 const User = mongoose.model('User', schema);
