@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
+// const SingleGamePage = () => {
 
-const SingleGamePage = () => {
+//   const {gameInfo} = props;
 
-  const {gameInfo} = props;
+//   const [games, setGames] = useState()
+//   let {id}
 
-  const [games, setGames] = useState()
-  let {id}
-  
-  return (
-  <div>
-    <h1>SingleGamePage<h1>
-    </div>
+//   return (
+//   <div>
+//     <h1>SingleGamePage<h1>
+//     </div>
 
-)
-};
+// )
+// };
 
-export default SingleGamePage;
+// export default SingleGamePage;
