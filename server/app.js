@@ -12,6 +12,9 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
+<<<<<<< HEAD
+const gameRouter = require('./routes/game');
+=======
 const ImageKit = require('imagekit');
 
 const imagekit = new ImageKit({
@@ -19,6 +22,7 @@ const imagekit = new ImageKit({
   publicKey: 'public_zuna+geOzioLn2fOkcxMCWNf+Qs=',
   privateKey: 'private_7d7yxwd8OFudu4LCost3weFJks0='
 });
+>>>>>>> 9ddb3250f7b8c3463f529cac59c0df2d897542da
 
 const app = express();
 
@@ -73,6 +77,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/game', gameRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

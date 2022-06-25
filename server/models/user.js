@@ -2,25 +2,27 @@
 
 const mongoose = require('mongoose');
 
-const schema = new mongoose.Schema({
-  name: {
-    type: String,
-    trim: true
+const schema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      trim: true
+    },
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true
+    },
+    passwordHashAndSalt: {
+      type: String
+    },
+    picture: {
+      type: String
+    }
   },
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-    trim: true
-  },
-  passwordHashAndSalt: {
-    type: String
-  },
-  picture: {
-    type: String
-  },
-  age: min
-});
+  { timestamps: true }
+);
 
 const User = mongoose.model('User', schema);
 
