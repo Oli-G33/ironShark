@@ -21,6 +21,7 @@ const schema = new mongoose.Schema({
 
   genre: {
     type: String,
+    enum: ['action', 'racing'],
     require: true
   },
 
@@ -28,6 +29,11 @@ const schema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 2
+  },
+
+  inStock: {
+    type: Boolean,
+    required: true
   },
 
   fileSize: {
