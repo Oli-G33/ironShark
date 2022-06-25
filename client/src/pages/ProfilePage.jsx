@@ -13,7 +13,7 @@ const ProfilePage = () => {
   useEffect(() => {
     profileLoad(id).then(data => {
       setProfile(data.profile);
-      // setGames(data.games);
+      console.log(data.profile);
     });
   }, [id]);
 
@@ -27,6 +27,7 @@ const ProfilePage = () => {
           <h1>{profile.name}</h1>
         </header>
       )}
+
       {user && user._id === id && (
         <Link className="btn" to="/profile/edit">
           Edit Profile

@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  input,
+  button {
+    margin: 2%;
+  }
+  label {
+    margin-left: 2%;
+  }
+}
+
+button {
+  background-color: #01ffff;
+}

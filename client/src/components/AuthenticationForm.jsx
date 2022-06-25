@@ -1,4 +1,5 @@
 import ImageInput from './ImageInput';
+import './AuthenticationForm.scss';
 
 const AuthenticationForm = props => {
   const handleSubmission = event => {
@@ -38,6 +39,24 @@ const AuthenticationForm = props => {
         </>
       )}
 
+      {props.displayInputs.includes('password') && (
+        <>
+          <label htmlFor="input-password">Password</label>
+          <input
+            id="input-password"
+            type="password"
+            placeholder="Password"
+            value={props.user.password}
+            onChange={event =>
+              props.onUserChange({
+                ...props.user,
+                password: event.target.value
+              })
+            }
+          />
+        </>
+      )}
+
       {props.displayInputs.includes('picture') && (
         <>
           <label htmlFor="input-picture">Picture</label>
@@ -54,24 +73,6 @@ const AuthenticationForm = props => {
             image={props.user.picture}
             onImageChange={picture =>
               props.onUserChange({ ...props.user, picture })
-            }
-          />
-        </>
-      )}
-
-      {props.displayInputs.includes('password') && (
-        <>
-          <label htmlFor="input-password">Password</label>
-          <input
-            id="input-password"
-            type="password"
-            placeholder="Password"
-            value={props.user.password}
-            onChange={event =>
-              props.onUserChange({
-                ...props.user,
-                password: event.target.value
-              })
             }
           />
         </>
