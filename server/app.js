@@ -12,10 +12,15 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
+const gameRouter = require('./routes/game');
+const ImageKit = require('imagekit');
+
+const imagekit = new ImageKit({
   urlEndpoint: 'https://ik.imagekit.io/p8y8zbsn1',
   publicKey: 'public_zuna+geOzioLn2fOkcxMCWNf+Qs=',
   privateKey: 'private_7d7yxwd8OFudu4LCost3weFJks0='
 });
+
 
 const app = express();
 
