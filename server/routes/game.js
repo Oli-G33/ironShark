@@ -3,7 +3,6 @@
 const express = require('express');
 
 const router = new express.Router();
-const Game = require('./../models/game');
 const routeGuard = require('./../middleware/route-guard');
 
 // - GET - '/game/search' - Allows user to search for games.
