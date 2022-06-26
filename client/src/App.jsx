@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-import ProfilePage from './pages/ProfilePage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
 import AddGamePage from './pages/AddGamePage';
 import EditGamePage from './pages/EditGamePage';
@@ -19,7 +19,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    loadUserInformation().then((data) => {
+    loadUserInformation().then(data => {
       setUser(data.user);
     });
   }, []);

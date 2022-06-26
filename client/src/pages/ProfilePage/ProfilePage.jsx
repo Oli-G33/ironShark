@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './ProfilePage.scss';
 
-import AuthenticationContext from '../context/authentication';
-import { profileLoad } from '../services/profile';
+import AuthenticationContext from '../../context/authentication';
+import { profileLoad } from '../../services/profile';
 
 const ProfilePage = () => {
   const { id } = useParams();
