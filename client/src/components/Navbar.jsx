@@ -18,6 +18,11 @@ const Navbar = () => {
 
       {(user && (
         <>
+          <img
+            id="nav-img"
+            src={user.picture || './../../DefaultUserImg.png'}
+            alt={user.name}
+          />
           <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
           <button onClick={handleSignOut}>Sign Out</button>
         </>

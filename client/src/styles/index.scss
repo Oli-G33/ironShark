@@ -15,4 +15,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #424242;
+  color: white;
+  a {
+    color: inherit;
+  }
+}
+
+a:hover {
+  color: yellow;
 }
