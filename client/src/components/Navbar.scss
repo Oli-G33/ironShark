@@ -1,9 +1,12 @@
 nav {
   display: flex;
+  justify-content: flex-end;
   a {
     padding: 1em;
     text-decoration: none;
   }
+  margin-right: 3%;
+  margin-top: 2%;
 }
 
 #nav-img {
