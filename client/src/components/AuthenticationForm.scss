@@ -5,10 +5,12 @@ form {
   input,
   button {
     margin: 2%;
+    padding: 2%;
+    font-size: 1.2em;
   }
-  label {
-    margin-left: 2%;
-  }
+}
+label {
+  margin-left: 2%;
 }
 
 button {

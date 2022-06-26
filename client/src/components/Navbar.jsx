@@ -15,7 +15,10 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <img id="logo-img" src="./../../Logo17.png" alt="GameShark" />
+        <Link to="/">
+          {' '}
+          <img id="logo-img" src="./../../Logo17.png" alt="GameShark" />
+        </Link>
       </div>
       <div>
         <Link to="/">Home</Link>
