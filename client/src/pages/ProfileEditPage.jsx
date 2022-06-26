@@ -1,20 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationForm from '../components/AuthenticationForm';
 import AuthenticationContext from '../context/authentication';
+import { profileEdit, profileLoad } from '../services/profile';
 
 const ProfileEditPage = () => {
-  const [user, setUser] = useState(AuthenticationContext);
+  const [profile, setProfile] = useState(null);
 
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const { user, setUser } = useContext(AuthenticationContext);
+
+  useEffect(() => {
+    if (user) {
+      profileLoad(user._id).then(data => setProfile(data.profile));
+    }
+  }, [user]);
+
+  const handleProfileEdit = () => {
+    profileEdit(profile).then(data => {
+      setUser(data.profile);
+      navigate('/');
+    });
+  };
 
   return (
     <div>
-      <h1>Edit Profile</h1>
-      <AuthenticationForm user={user} onUserChange={setUser} />
+      <h1>Profile Edit</h1>
+      {profile && (
+        <AuthenticationForm
+          user={profile}
+          buttonLabel="Edit Profile"
+          displayInputs={['name', 'email', 'picture']}
+          onUserChange={setProfile}
+          onAuthenticationSubmit={handleProfileEdit}
+        />
+      )}
     </div>
   );
 };
