@@ -3,16 +3,21 @@
 const express = require('express');
 const Bookmark = require('../models/bookmarks');
 const Game = require('../models/game');
-
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 
 // - GET - '/game/search' - Allows user to search for games.
 router.get('/search', (req, res, next) => {
-  const { title, genre, free, maximumPrice } = req.query;
+  const {
+    title,
+    genre,
+    // free, <= need to ask TA about how to build this
+    maximumPrice
+  } = req.query;
   Game.find({
     title,
     genre,
+    // free, <= need to ask TA about how to build this
     price: { $lte: maximumPrice }
   })
     .then((games) => {
@@ -144,7 +149,7 @@ router.post('/:id/bookmark', routeGuard, (req, res, next) => {
   const { id } = req.params;
   const userId = req.user._id;
 
-  /* Avioids creating a duplicate bookmark */
+  /* Avoids creating a duplicate bookmark */
   Bookmark.findOne({ game: id, user: userId })
     .then((game) => {
       if (!game) {
