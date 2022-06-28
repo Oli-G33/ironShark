@@ -1,12 +1,12 @@
 import { IKContext, IKUpload } from 'imagekitio-react';
 
-const ImageInput = (props) => {
-  const handleSuccess = (result) => {
+const ImageInput = props => {
+  const handleSuccess = result => {
     const { url } = result;
     props.onImageChange(url);
   };
 
-  const handleError = (error) => {
+  const handleError = error => {
     console.log(error);
     props.onImageChange('');
   };
