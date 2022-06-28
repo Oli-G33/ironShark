@@ -1,5 +1,5 @@
 {
-  "name": "ironShark",
+  "name": "ironsharkz",
   "version": "0.1.0",
   "script": {
     "start": "cd server && npm run start",
