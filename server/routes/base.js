@@ -2,6 +2,7 @@
 
 const express = require('express');
 const Game = require('../models/game');
+const User = require('../models/user');
 const router = express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const ImageKit = require('imagekit');
@@ -9,14 +10,17 @@ const ImageKit = require('imagekit');
 // - GET - / - List games and profiles
 router.get('/', (req, res, next) => {
   let games;
+  console.log('AAA');
   Game.find()
     .limit(10)
     .sort({ createdAt: -1 })
     .then((documents) => {
+      console.log('BBB', documents);
       games = documents;
       return User.find().limit(10).sort({ createdAt: -1 });
     })
     .then((profiles) => {
+      console.log(profiles);
       res.json({ games, profiles });
     })
     .catch((error) => {
@@ -36,7 +40,7 @@ router.get('/imagekit-authentication', (req, res, next) => {
 });
 
 router.get('/private', routeGuard, (req, res, next) => {
-  res.json({});
+  res.json({ message: 'helloooo!' });
 });
 
 module.exports = router;
