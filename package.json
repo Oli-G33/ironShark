@@ -1,7 +1,7 @@
 {
   "name": "ironsharkz",
   "version": "0.1.0",
-  "script": {
+  "scripts": {
     "start": "cd server && npm run start",
     "prepare": "cd server && npm i"
   }
