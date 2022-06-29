@@ -12,7 +12,7 @@ const ProfilePage = () => {
   // const [games, setGames] = useState([]);
 
   useEffect(() => {
-    profileLoad(id).then(data => {
+    profileLoad(id).then((data) => {
       setProfile(data.profile);
     });
   }, [id]);
@@ -35,6 +35,7 @@ const ProfilePage = () => {
       {user && user._id === id && (
         <Link className="btn" to="/profile/edit">
           Edit Profile
+          <Link to="../AddGamePage"> add game</Link>
         </Link>
       )}
     </div>

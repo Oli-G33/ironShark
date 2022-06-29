@@ -27,12 +27,12 @@ const AddGamePage = () => {
   return (
     <div>
       <h1>Add new game</h1>
-      <GameForm
+      {/* <GameForm
         game={game}
-        onGameChange={setGame}
-        onGameSubmit={handleGameCreation}
+        //onGameChange={setGame}
+        //onGameSubmit={handleGameCreation}
         buttonLabel="Add Game"
-      />
+      /> */}
     </div>
   );
 };
