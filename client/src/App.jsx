@@ -8,7 +8,7 @@ import ErrorPage from './pages/ErrorPage';
 import AddGamePage from './pages/AddGamePage';
 import EditGamePage from './pages/EditGamePage';
 import BookmarksPage from './pages/BookmarksPage';
-// import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
+import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import SearchPage from './pages/SearchPage';
 import AuthenticationContext from './context/authentication';
@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/game/add" element={<AddGamePage />} />
           <Route path="/bookmarks" element={<BookmarksPage />} />
-          {/* <Route path="/game/:id" element={<SingleGamePage />} /> */}
+          <Route path="/game/:id" element={<SingleGamePage />} />
           <Route path="/profile/edit" element={<ProfileEditPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/edit-game" element={<EditGamePage />} />

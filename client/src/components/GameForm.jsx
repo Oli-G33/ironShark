@@ -37,7 +37,7 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
         }
       >
         <option value="action">Action</option>
-        <option value="horror ">Horror</option>
+        <option value="horror">Horror</option>
         <option value="adventure">Adventure</option>
         <option value="racing">Racing</option>
         <option value="fighting ">Fighting</option>

@@ -10,7 +10,7 @@ const AddGamePage = () => {
     gameUrl: '',
     description: '',
     genre: [],
-    price: 2,
+    price: 0,
     cover: '',
     screenshots: [],
     trailer: ''
