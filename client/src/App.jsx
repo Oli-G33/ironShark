@@ -19,7 +19,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    loadUserInformation().then(data => {
+    loadUserInformation().then((data) => {
       setUser(data.user);
     });
   }, []);
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/log-in" element={<LoginPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/error" element={<ErrorPage />} />
-          <Route path="/add-game" element={<AddGamePage />} />
+          <Route path="/game/add" element={<AddGamePage />} />
           <Route path="/bookmarks" element={<BookmarksPage />} />
           {/* <Route path="/game/:id" element={<SingleGamePage />} /> */}
           <Route path="/profile/edit" element={<ProfileEditPage />} />

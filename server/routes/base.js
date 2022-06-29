@@ -40,7 +40,7 @@ router.get('/imagekit-authentication', (req, res, next) => {
 });
 
 router.get('/private', routeGuard, (req, res, next) => {
-  res.json({ message: 'helloooo!' });
+  res.json({});
 });
 
 module.exports = router;

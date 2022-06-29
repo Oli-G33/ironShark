@@ -22,7 +22,7 @@ const schema = new mongoose.Schema(
 
     genre: {
       type: String,
-      enum: ['action', 'racing'],
+      enum: ['action', 'horror', 'adventure', 'racing', 'fighting', 'sports'],
       require: true
     },
 
@@ -30,23 +30,6 @@ const schema = new mongoose.Schema(
       type: Number,
       required: true,
       min: 2
-    },
-
-    inStock: {
-      type: Boolean,
-      required: true
-    },
-
-    fileSize: {
-      type: Number,
-      required: true,
-      min: 0
-    },
-
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
     },
 
     cover: {
@@ -61,8 +44,7 @@ const schema = new mongoose.Schema(
     ],
 
     trailer: {
-      type: String,
-      required: true
+      type: String
     }
   },
   { timestamps: true }

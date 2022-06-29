@@ -50,8 +50,6 @@ router.patch('/:id', routeGuard, (req, res, next) => {
     description,
     genre,
     price,
-    inStock,
-    fileSize,
     cover,
     screenshots,
     trailer
@@ -65,8 +63,6 @@ router.patch('/:id', routeGuard, (req, res, next) => {
       description,
       genre,
       price,
-      inStock,
-      fileSize,
       cover,
       screenshots,
       trailer
@@ -102,8 +98,6 @@ router.post('/', routeGuard, (req, res, next) => {
     description,
     genre,
     price,
-    inStock,
-    fileSize,
     cover,
     screenshots,
     trailer
@@ -116,8 +110,6 @@ router.post('/', routeGuard, (req, res, next) => {
     owner,
     genre,
     price,
-    inStock,
-    fileSize,
     cover,
     screenshots,
     trailer

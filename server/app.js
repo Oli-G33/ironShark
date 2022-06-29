@@ -75,6 +75,7 @@ app.use(bindUserToViewLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/profile', profileRouter);
+app.use('/game', gameRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

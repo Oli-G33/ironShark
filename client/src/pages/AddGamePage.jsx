@@ -1,37 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import GameForm from '../components/GameForm';
 
 import { gameAdd } from '../services/games';
 
 const AddGamePage = () => {
   const [game, setGame] = useState({
     title: '',
-
     gameUrl: '',
-
     description: '',
-
-    genre: '',
-
-    price: 'num',
-
-    inStock: 'true',
-
-    fileSize: 'mb',
-
-    owner: '',
-
+    genre: [],
+    price: 2,
     cover: '',
-
-    screenshots: '',
-
+    screenshots: [],
     trailer: ''
   });
 
   const navigate = useNavigate();
   const handleGameCreation = () => {
     gameAdd(game).then((data) => {
-      const id = data.hame._id;
+      const id = data.game._id;
       navigate(`/game/${id}`);
     });
   };
