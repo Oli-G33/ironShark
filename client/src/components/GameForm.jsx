@@ -39,4 +39,4 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
   );
 };
 
-export default GameForm;
+//export default GameForm;
