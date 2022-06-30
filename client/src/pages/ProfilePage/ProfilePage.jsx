@@ -9,11 +9,13 @@ const ProfilePage = () => {
   const { id } = useParams();
 
   const [profile, setProfile] = useState(null);
-  // const [games, setGames] = useState([]);
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
     profileLoad(id).then((data) => {
+      console.log(data.profile);
       setProfile(data.profile);
+      setGames(data.games);
     });
   }, [id]);
 
@@ -29,14 +31,23 @@ const ProfilePage = () => {
           />
           <h1>{profile.name}</h1>
           <h3>{profile.email}</h3>
+          {games.map((game) => (
+            <ul>
+              <li>{game.title}</li>
+            </ul>
+          ))}
         </header>
       )}
 
       {user && user._id === id && (
-        <Link className="btn" to="/profile/edit">
-          Edit Profile
-          <Link to="../AddGamePage"> add game</Link>
-        </Link>
+        <div>
+          <Link className="btn" to="/profile/edit">
+            Edit Profile
+          </Link>
+          <div>
+            <Link to="../game/add">Upload Game</Link>{' '}
+          </div>
+        </div>
       )}
     </div>
   );

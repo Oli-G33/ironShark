@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
   let games;
   console.log('AAA');
   Game.find()
-    .limit(10)
+    // .limit(10)
     .sort({ createdAt: -1 })
     .then((documents) => {
       console.log('BBB', documents);
