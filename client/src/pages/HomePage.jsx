@@ -13,13 +13,15 @@ const HomePage = () => {
   return (
     <div>
       <h1>IronShark</h1>
-      <h2>Some of our latest Games</h2>
-      {games.map((game) => (
-        // <ul>
-        //   <li>{game.title}</li>
-        // </ul>
-        <GameCard key={game._id} game={game} />
-      ))}
+      <h2>Recently added</h2>
+      {games
+        .map((game) => (
+          // <ul>
+          //   <li>{game.title}</li>
+          // </ul>
+          <GameCard key={game._id} game={game} />
+        ))
+        .slice(0, 10)}
     </div>
   );
 };
