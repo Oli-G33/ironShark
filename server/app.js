@@ -15,6 +15,8 @@ const authenticationRouter = require('./routes/authentication');
 const gameRouter = require('./routes/game');
 const ImageKit = require('imagekit');
 const profileRouter = require('./routes/profile');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const imagekit = new ImageKit({
   urlEndpoint: 'https://ik.imagekit.io/p8y8zbsn1',
@@ -33,6 +35,10 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+// Added for Stripe
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 app.get('/authentication', function (req, res) {
   const result = imagekit.getAuthenticationParameters();
@@ -71,6 +77,31 @@ app.use(
 );
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
+
+// Stripe
+app.post('/payment', cors(), async (req, res) => {
+  let { amount, id } = req.body;
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount,
+      currency: 'EUR',
+      description: 'Uncharted 2',
+      payment_method: id,
+      confirm: true
+    });
+    console.log('Payment', payment);
+    res.json({
+      message: 'Payment successful',
+      success: true
+    });
+  } catch (error) {
+    console.log('Error', error);
+    res.json({
+      message: 'Payment failed',
+      success: false
+    });
+  }
+});
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);

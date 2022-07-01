@@ -14,12 +14,13 @@ import SearchPage from './pages/SearchPage';
 import AuthenticationContext from './context/authentication';
 import { useState, useEffect } from 'react';
 import { loadUserInformation } from './services/authentication';
+import CheckoutPage from './pages/CheckoutPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    loadUserInformation().then((data) => {
+    loadUserInformation().then(data => {
       setUser(data.user);
     });
   }, []);
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/profile/edit" element={<ProfileEditPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/edit-game" element={<EditGamePage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
     </AuthenticationContext.Provider>
