@@ -31,9 +31,12 @@ const ProfilePage = () => {
           />
           <h1>{profile.name}</h1>
           <h3>{profile.email}</h3>
+          <h1>Games created by {profile.name}</h1>
           {games.map((game) => (
             <ul>
-              <li>{game.title}</li>
+              <li>
+                <Link to={`/game/${game._id}`}>{game.title}</Link>
+              </li>
             </ul>
           ))}
         </header>

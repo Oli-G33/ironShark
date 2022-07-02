@@ -34,6 +34,7 @@ const SingleGamePage = () => {
           {user && game.owner._id === user._id && (
             <Link to={`/game/${id}/edit`}> Edit Game</Link>
           )}
+          {user && <button>Bookmark</button>}
         </>
       )}
     </div>
