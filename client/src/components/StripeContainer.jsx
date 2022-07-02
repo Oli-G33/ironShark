@@ -5,10 +5,10 @@ import PaymentForm from './PaymentForm';
 
 const stripeTestPromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
-const StripeContainer = () => {
+const StripeContainer = props => {
   return (
     <Elements stripe={stripeTestPromise}>
-      <PaymentForm />
+      <PaymentForm price={props.price} />
     </Elements>
   );
 };

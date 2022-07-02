@@ -1,46 +1,36 @@
 import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
-import BillingDetailsFields from './BillingDetails';
+import BillingDetailsFields from './BillingDetailsFields';
+import CardElementComponent from './CardElementComponent';
+import Row from './Row';
+import SubmitButton from './SubmitButton';
 
-const CARD_OPTIONS = {
-  hidePostalCode: true,
-  iconStyle: 'solid',
-  style: {
-    base: {
-      iconColor: '#c4f0ff',
-      color: '#fff',
-      fontWeight: 500,
-      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-      fontSize: '16px',
-      fontSmoothing: 'antialiased',
-      ':-webkit-autofill': { color: '#fce883' },
-      '::placeholder': { color: '#87bbfd' }
-    },
-    invalid: {
-      iconColor: '#ffc7ee',
-      color: '#ffc7ee'
-    }
-  }
-};
-
-const PaymentForm = () => {
+const PaymentForm = ({ price, onSuccessfulCheckout }) => {
+  const [isProcessing, setProcessingTo] = useState(false);
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async e => {
+    const billingDetails = {
+      name: e.target.name.value,
+      email: e.target.email.value
+    };
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
-      card: elements.getElement(CardElement)
+      card: elements.getElement(CardElement),
+      billing_details: billingDetails
     });
+
+    setProcessingTo(true);
 
     if (!error) {
       try {
         const { id } = paymentMethod;
         const response = await axios.post('http://localhost:3010/payment', {
-          amount: 1000,
+          amount: price * 100,
           id
         });
 
@@ -62,11 +52,18 @@ const PaymentForm = () => {
         <form onSubmit={handleSubmit}>
           <fieldset className="FormGroup">
             <div className="FormRow">
-              <BillingDetailsFields />
-              <CardElement options={CARD_OPTIONS} />
+              <Row>
+                <BillingDetailsFields />
+              </Row>
+
+              <CardElementComponent />
             </div>
           </fieldset>
-          <button>Pay</button>
+          <Row>
+            <SubmitButton disabled={isProcessing}>
+              {isProcessing ? 'Processing...' : `Pay €${price}`}
+            </SubmitButton>
+          </Row>
         </form>
       ) : (
         <div>
