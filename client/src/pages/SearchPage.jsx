@@ -23,7 +23,7 @@ const SearchPage = () => {
     });
   }, []);
 
-  const checkMax = Math.max(...games.map((o) => o.price));
+  const checkMax = Math.max(...games.map((o) => o.price)) + 5;
 
   const onSearchChange = (event) => {
     const setSearchString = event.target.value.toLocaleLowerCase();
@@ -36,7 +36,7 @@ const SearchPage = () => {
   const filteredGames = games.filter((game) => {
     if (genres.length && !genres.includes(game.genre)) {
       return false;
-    } else if (price != 0) {
+    } else if (game.price >= price) {
       return false;
     }
     return game.title.toLocaleLowerCase().includes(searchField);
@@ -81,13 +81,9 @@ const SearchPage = () => {
           onChange={(event) => {
             const number = event.target.value;
             console.log(number);
-            if (number) {
-              setPrice([...price, price.value]);
-            } else {
-              setPrice(price.filter((item) => item !== price.value));
-            }
+            setPrice(number);
           }}
-          step="1"
+          step="5"
         />
       </label>
     </div>
