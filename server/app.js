@@ -85,7 +85,7 @@ app.post('/payment', cors(), async (req, res) => {
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: 'EUR',
-      description: 'Uncharted 2',
+      description: id,
       payment_method: id,
       confirm: true
     });

@@ -5,7 +5,7 @@ import AuthenticationContext from '../../context/authentication';
 import ProfileCard from '../../components/ProfileCard';
 
 import { gameLoad } from '../../services/games';
-const formatPrice = (price) =>
+const formatPrice = price =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
     price
   );
@@ -16,7 +16,7 @@ const SingleGamePage = () => {
   const [game, setGame] = useState(null);
 
   useEffect(() => {
-    gameLoad(id).then((data) => setGame(data.game));
+    gameLoad(id).then(data => setGame(data.game));
   }, [id]);
 
   const { user } = useContext(AuthenticationContext);
