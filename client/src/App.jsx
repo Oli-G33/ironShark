@@ -15,7 +15,6 @@ import AuthenticationContext from './context/authentication';
 import { useState, useEffect } from 'react';
 import { loadUserInformation } from './services/authentication';
 import CheckoutPage from './pages/CheckoutPage';
-import SuccessPage from './pages/SuccessPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -42,7 +41,6 @@ const App = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/game/:id/edit" element={<EditGamePage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/success" element={<SuccessPage />} />
         </Routes>
       </BrowserRouter>
     </AuthenticationContext.Provider>
