@@ -6,7 +6,7 @@ import ProfileCard from '../../components/ProfileCard';
 import { gameLoad } from '../../services/games';
 import { gameDelete } from '../../services/games';
 
-const formatPrice = (price) =>
+const formatPrice = price =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
     price
   );
@@ -19,11 +19,11 @@ const SingleGamePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    gameLoad(id).then((data) => setGame(data.game));
+    gameLoad(id).then(data => setGame(data.game));
   }, [id]);
 
   const handleGameDelete = () => {
-    gameDelete(id, game).then((data) => {
+    gameDelete(id, game).then(data => {
       navigate(`/`);
     });
   };
@@ -44,6 +44,9 @@ const SingleGamePage = () => {
           <h3>{game.genre}</h3>
           <h3>{formatPrice(game.price)}</h3>
           <ProfileCard profile={game.owner} />
+          <Link to="/checkout" state={{ price: game.price }}>
+            <button>Buy Now</button>
+          </Link>
           {user && game.owner._id === user._id && (
             <Link to={`/game/${id}/edit`}> Edit Game</Link>
           )}

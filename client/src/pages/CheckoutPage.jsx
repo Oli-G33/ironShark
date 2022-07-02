@@ -22,7 +22,7 @@ const CheckoutPage = () => {
       ) : (
         <>
           <h3>{formatPrice(price)}</h3>
-          {/* <img src={UC2Image} alt="TheBestGame" /> */}
+
           <button onClick={() => setShowItem(true)}>Pay</button>
         </>
       )}
