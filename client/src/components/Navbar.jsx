@@ -29,7 +29,7 @@ const Navbar = () => {
               src={user.picture || './../../DefaultUserImg.png'}
               alt={user.name}
             />
-            <Link to="/search">Search</Link>
+            <Link to="/search">Browse Games</Link>
             <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
 
             <button onClick={handleSignOut}>Sign Out</button>

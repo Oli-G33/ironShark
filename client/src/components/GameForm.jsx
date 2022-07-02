@@ -3,6 +3,8 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
     event.preventDefault();
     onGameSubmit();
   };
+  // let gameGenre;
+  // const [action, fighting] = gameGenre;
 
   return (
     <form onSubmit={handleGameFormSubmission}>
@@ -40,7 +42,7 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
         <option value="horror">Horror</option>
         <option value="adventure">Adventure</option>
         <option value="racing">Racing</option>
-        <option value="fighting ">Fighting</option>
+        <option value="fighting">Fighting</option>
         <option value="sports">Sports</option>
       </select>
 

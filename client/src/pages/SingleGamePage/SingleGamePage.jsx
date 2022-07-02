@@ -28,10 +28,6 @@ const SingleGamePage = () => {
     });
   };
 
-  const handleReturnProfile = () => {
-    navigate(`/profile/${game.owner._id}`);
-  };
-
   const { user } = useContext(AuthenticationContext);
 
   return (
@@ -57,8 +53,6 @@ const SingleGamePage = () => {
           {user && <button>Bookmark</button>}
         </>
       )}
-
-      <button onClick={handleReturnProfile}>Go back to Pofile</button>
     </div>
   );
 };
