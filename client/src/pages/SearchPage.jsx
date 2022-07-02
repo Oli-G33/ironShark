@@ -9,7 +9,8 @@ const possibleGenres = [
   { label: 'Adventure', value: 'adventure' },
   { label: 'Fighting', value: 'fighting' },
   { label: 'Horror', value: 'horror' },
-  { label: 'FOo', value: 'foo' }
+  { label: 'Racing', value: 'racing' },
+  { label: 'Sports', value: 'sports' }
 ];
 
 const SearchPage = () => {
@@ -22,15 +23,20 @@ const SearchPage = () => {
     });
   }, []);
 
+  const checkMax = Math.max(...games.map((o) => o.price));
+
   const onSearchChange = (event) => {
     const setSearchString = event.target.value.toLocaleLowerCase();
     setSearchField(setSearchString);
   };
 
-  const [genres, setGenres] = useState(['action']);
+  const [genres, setGenres] = useState([]);
+  const [price, setPrice] = useState(0);
 
   const filteredGames = games.filter((game) => {
     if (genres.length && !genres.includes(game.genre)) {
+      return false;
+    } else if (price != 0) {
       return false;
     }
     return game.title.toLocaleLowerCase().includes(searchField);
@@ -64,6 +70,26 @@ const SearchPage = () => {
           }}
         />
       ))}
+      <label>
+        Price
+        <input
+          id="typeinp"
+          type="range"
+          min="0"
+          max={checkMax}
+          //value="1"
+          onChange={(event) => {
+            const number = event.target.value;
+            console.log(number);
+            if (number) {
+              setPrice([...price, price.value]);
+            } else {
+              setPrice(price.filter((item) => item !== price.value));
+            }
+          }}
+          step="1"
+        />
+      </label>
     </div>
   );
 };

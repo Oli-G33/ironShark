@@ -29,7 +29,7 @@ const schema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
-      min: 2
+      min: 0
     },
 
     cover: {
