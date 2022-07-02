@@ -11,6 +11,9 @@ export const gameLoad = (id) =>
 export const gameEdit = (id, game) =>
   api.patch(`/game/${id}`, game).then((response) => response.data);
 
+export const gameDelete = (id) =>
+  api.delete(`/game/${id}`).then((response) => response.data);
+
 export const gameAdd = (game) =>
   api.post('/game', game).then((response) => response.data);
 
@@ -20,5 +23,5 @@ export const bookmarkList = () =>
 export const bookmarkAdd = (id) =>
   api.post(`/game/${id}/bookmark`).then((response) => response.data);
 
-export const bookmarkRemove = (id) =>
+export const bookmarkDelete = (id) =>
   api.delete(`/game/${id}/bookmark`).then((response) => response.data);

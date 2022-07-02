@@ -15,9 +15,15 @@ const EditGamePage = () => {
       navigate(`/game/${id}`);
     });
   };
+  const handleReturnProfile = () => {
+    navigate(`/profile/${game.owner._id}`);
+  };
 
   useEffect(() => {
-    gameLoad(id).then((data) => setGame(data.game));
+    gameLoad(id).then((data) => {
+      console.log(data.game);
+      setGame(data.game);
+    });
   }, [id]);
 
   return (
@@ -31,6 +37,7 @@ const EditGamePage = () => {
           buttonLabel="Edit Game"
         />
       )}
+      <button onClick={handleReturnProfile}>Go back to Profile</button>
     </div>
   );
 };
