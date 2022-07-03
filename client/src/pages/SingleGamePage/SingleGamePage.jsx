@@ -6,7 +6,7 @@ import ProfileCard from '../../components/ProfileCard';
 import { gameLoad } from '../../services/games';
 import { gameDelete } from '../../services/games';
 
-const formatPrice = price =>
+const formatPrice = (price) =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
     price
   );
@@ -19,11 +19,11 @@ const SingleGamePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    gameLoad(id).then(data => setGame(data.game));
+    gameLoad(id).then((data) => setGame(data.game));
   }, [id]);
 
   const handleGameDelete = () => {
-    gameDelete(id, game).then(data => {
+    gameDelete(id, game).then((data) => {
       navigate(`/`);
     });
   };

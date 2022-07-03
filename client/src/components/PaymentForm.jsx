@@ -38,7 +38,7 @@ const PaymentForm = ({ price, onSuccessfulCheckout }) => {
     margin-top: 40px;
   `;
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     const billingDetails = {
       name: e.target.name.value,
       email: e.target.email.value
@@ -71,7 +71,7 @@ const PaymentForm = ({ price, onSuccessfulCheckout }) => {
       console.log(error.message);
     }
   };
-  const formatPrice = price =>
+  const formatPrice = (price) =>
     new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR'

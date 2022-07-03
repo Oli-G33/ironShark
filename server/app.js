@@ -15,6 +15,7 @@ const authenticationRouter = require('./routes/authentication');
 const gameRouter = require('./routes/game');
 const ImageKit = require('imagekit');
 const profileRouter = require('./routes/profile');
+const User = require('./models/user');
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -89,11 +90,14 @@ app.post('/payment', cors(), async (req, res) => {
       payment_method: id,
       confirm: true
     });
-    console.log('Payment', payment);
+    console.log(req.body);
+    User.find();
     res.json({
       message: 'Payment successful',
       success: true
     });
+
+    console.log('aqui2');
   } catch (error) {
     console.log('Error', error);
     res.json({
