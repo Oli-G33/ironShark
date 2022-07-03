@@ -16,7 +16,8 @@ const GameCard = ({ game }) => (
       <span>{`${game.title} `}</span>
 
       <small>{`${game.genre} `}</small>
-      <small>{formatPrice(game.price)}</small>
+      <small>{game.price > 0 && formatPrice(game.price)}</small>
+      <small>{game.price === 0 && 'Free'}</small>
       <br />
     </Link>
     <div>
