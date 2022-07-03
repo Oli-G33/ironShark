@@ -80,7 +80,7 @@ const SearchPage = () => {
           //value="1"
           onChange={(event) => {
             const number = event.target.value;
-            console.log(number);
+
             setPrice(number);
           }}
           step="5"

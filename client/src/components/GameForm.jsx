@@ -38,6 +38,7 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
           onGameChange({ ...game, genre: event.target.value })
         }
       >
+        <option>Select Genre</option>
         <option value="action">Action</option>
         <option value="horror">Horror</option>
         <option value="adventure">Adventure</option>
@@ -50,6 +51,7 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
       <input
         id="input-price"
         type="number"
+        step="0.1"
         min={0}
         placeholder="Insert Price"
         value={game.price}
