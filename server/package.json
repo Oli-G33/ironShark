@@ -22,6 +22,7 @@
     "imagekitio-react": "^1.1.1",
     "mongoose": "^6.2.11",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.6",
     "serve-favicon": "^2.5.0",
     "stripe": "^9.11.0"
   },

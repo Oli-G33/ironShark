@@ -21,7 +21,6 @@ const EditGamePage = () => {
 
   useEffect(() => {
     gameLoad(id).then((data) => {
-      console.log(data.game);
       setGame(data.game);
     });
   }, [id]);

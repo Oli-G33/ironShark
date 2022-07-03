@@ -10,17 +10,15 @@ const ImageKit = require('imagekit');
 // - GET - / - List games and profiles
 router.get('/', (req, res, next) => {
   let games;
-  console.log('AAA');
+
   Game.find()
     // .limit(10)
     .sort({ createdAt: -1 })
     .then((documents) => {
-      console.log('BBB', documents);
       games = documents;
       return User.find().limit(10).sort({ createdAt: -1 });
     })
     .then((profiles) => {
-      console.log(profiles);
       res.json({ games, profiles });
     })
     .catch((error) => {
