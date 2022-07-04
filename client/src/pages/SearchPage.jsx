@@ -18,14 +18,14 @@ const SearchPage = () => {
   const [searchField, setSearchField] = useState('');
 
   useEffect(() => {
-    listGameData().then((data) => {
+    listGameData().then(data => {
       setGames(data.games);
     });
   }, []);
 
-  const checkMax = Math.max(...games.map((o) => o.price)) + 5;
+  const checkMax = Math.max(...games.map(o => o.price)) + 5;
 
-  const onSearchChange = (event) => {
+  const onSearchChange = event => {
     const setSearchString = event.target.value.toLocaleLowerCase();
     setSearchField(setSearchString);
   };
@@ -33,7 +33,7 @@ const SearchPage = () => {
   const [genres, setGenres] = useState([]);
   const [price, setPrice] = useState(0);
 
-  const filteredGames = games.filter((game) => {
+  const filteredGames = games.filter(game => {
     if (genres.length && !genres.includes(game.genre)) {
       return false;
     } else if (game.price >= price) {
@@ -50,22 +50,22 @@ const SearchPage = () => {
         placeholder="search games"
       />
       <br></br>
-      {filteredGames.map((game) => (
+      {filteredGames.map(game => (
         // <ul>
         //   <li>{game.title}</li>
         // </ul>
         <GameCard key={game._id} game={game} />
       ))}
-      {possibleGenres.map((genre) => (
+      {possibleGenres.map(genre => (
         <Form.Check
           label={genre.label}
           checked={genres.includes(genre.value)}
-          onChange={(event) => {
+          onChange={event => {
             const checked = event.target.checked;
             if (checked) {
               setGenres([...genres, genre.value]);
             } else {
-              setGenres(genres.filter((item) => item !== genre.value));
+              setGenres(genres.filter(item => item !== genre.value));
             }
           }}
         />
@@ -78,7 +78,7 @@ const SearchPage = () => {
           min="0"
           max={checkMax}
           //value="1"
-          onChange={(event) => {
+          onChange={event => {
             const number = event.target.value;
 
             setPrice(number);

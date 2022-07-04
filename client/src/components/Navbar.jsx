@@ -1,15 +1,17 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 import AuthenticationContext from '../context/authentication';
 import { signOutUser } from './../services/authentication';
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthenticationContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     signOutUser().then(() => {
       setUser(null);
+      navigate('/');
     });
   };
   return (
