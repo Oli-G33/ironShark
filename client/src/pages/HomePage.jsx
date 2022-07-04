@@ -17,7 +17,7 @@ const HomePage = () => {
       <h2>Recently added</h2>
       {games
         .map(game => (
-          // <ul>
+          // <ul >
           //   <li>{game.title}</li>
           // </ul>
           <GameCard key={game._id} game={game} />

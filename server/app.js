@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 });
 
 // Added for Stripe
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 app.get('/authentication', function (req, res) {
@@ -80,31 +80,29 @@ app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
 // Stripe
-app.post('/payment', cors(), async (req, res) => {
-  let { amount, id } = req.body;
-  try {
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: 'EUR',
-      description: id,
-      payment_method: id,
-      confirm: true
-    });
-    console.log(req.body);
-    User.find();
-    res.json({
-      message: 'Payment successful',
-      success: true
-    });
 
-    console.log('aqui2');
-  } catch (error) {
-    console.log('Error', error);
-    res.json({
-      message: 'Payment failed',
-      success: false
-    });
-  }
+const calculateOrderAmount = (items) => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
+
+app.post('/create-payment-intent', async (req, res) => {
+  const { price } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: price * 100,
+    currency: 'eur',
+    automatic_payment_methods: {
+      enabled: true
+    }
+  });
+
+  res.send({
+    clientSecret: paymentIntent.client_secret
+  });
 });
 
 app.use('/', baseRouter);

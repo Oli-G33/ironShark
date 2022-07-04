@@ -12,7 +12,7 @@ const ProfilePage = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    profileLoad(id).then((data) => {
+    profileLoad(id).then(data => {
       console.log(data.profile);
       setProfile(data.profile);
       setGames(data.games);
@@ -32,8 +32,8 @@ const ProfilePage = () => {
           <h1>{profile.name}</h1>
           <h3>{profile.email}</h3>
           <h1>Games created by {profile.name}</h1>
-          {games.map((game) => (
-            <ul>
+          {games.map(game => (
+            <ul key={game._id}>
               <li>
                 <Link to={`/game/${game._id}`}>{game.title}</Link>
               </li>

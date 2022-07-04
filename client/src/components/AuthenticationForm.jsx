@@ -8,7 +8,7 @@ const AuthenticationForm = props => {
   };
 
   return (
-    <form onSubmit={handleSubmission}>
+    <form className="authForm" onSubmit={handleSubmission}>
       {props.displayInputs.includes('name') && (
         <>
           <label htmlFor="input-name">Name</label>
@@ -78,7 +78,7 @@ const AuthenticationForm = props => {
         </>
       )}
 
-      <button>{props.buttonLabel}</button>
+      <button className="authFormButton">{props.buttonLabel}</button>
     </form>
   );
 };

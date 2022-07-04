@@ -5,6 +5,7 @@ const Bookmark = require('../models/bookmarks');
 const Game = require('../models/game');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // - GET - '/game/search' - Allows user to search for games.
 router.get('/search', (req, res, next) => {
@@ -114,6 +115,13 @@ router.post('/', routeGuard, (req, res, next) => {
     screenshots,
     trailer
   })
+    .then(
+      stripe.products.create({
+        name: title,
+        default_price_data: { unit_amount: price * 100, currency: 'eur' },
+        expand: ['default_price']
+      })
+    )
     .then((game) => {
       res.json({ game });
     })

@@ -24,12 +24,14 @@ const SearchPage = () => {
   }, []);
 
   const checkMax = Math.max(...games.map((o) => o.price)) + 5;
+
   const onSearchChange = (event) => {
     const setSearchString = event.target.value.toLocaleLowerCase();
     setSearchField(setSearchString);
   };
   const [genres, setGenres] = useState([]);
   const [price, setPrice] = useState(0);
+
   const filteredGames = games.filter((game) => {
     if (genres.length && !genres.includes(game.genre)) {
       return false;

@@ -5,6 +5,7 @@ const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const nodemailer = require('nodemailer');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const router = new Router();
 
@@ -20,6 +21,12 @@ router.post('/sign-up', (req, res, next) => {
         picture
       });
     })
+    .then(
+      stripe.customers.create({
+        name,
+        email
+      })
+    )
     .then((user) => {
       let transport = nodemailer.createTransport({
         host: 'smtp-mail.outlook.com',
