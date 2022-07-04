@@ -34,7 +34,9 @@ const Success = () => {
         <Confetti width={width} height={height} numberOfPieces={400} />
         <Title>Thank you for your purchase!</Title>
         <Message>You will receive a download link by email</Message>
-        <Link to="/">Search more games!</Link>
+        <Link to="/">
+          <button>Search more games!</button>
+        </Link>
       </Container>
     </div>
   );

@@ -117,8 +117,9 @@ router.post('/', routeGuard, (req, res, next) => {
   })
     .then(
       stripe.products.create({
-        name: title
-        // default_price: Number(price)
+        name: title,
+        default_price_data: { unit_amount: price * 100, currency: 'eur' },
+        expand: ['default_price']
       })
     )
     .then((game) => {
