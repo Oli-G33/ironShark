@@ -28,7 +28,7 @@ const GameCard = ({ game }) => {
       </Link>
       <div>
         {(user && (
-          <Link to="/checkout" state={{ price: game.price }}>
+          <Link to="/checkout" state={{ price: game.price, id: game._id }}>
             <button>Buy Now</button>
           </Link>
         )) || (

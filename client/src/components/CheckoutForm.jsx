@@ -63,6 +63,14 @@ export default function CheckoutForm(props) {
       }
     });
 
+    // Once the payment is confirmed => send Game ID to the Profile Page:
+
+    // if (!error) {
+    //   const gameID = { id: props.gameId };
+    // }
+
+    // export default gameID;
+
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
     // your `return_url`. For some payment methods like iDEAL, your customer will
@@ -80,7 +88,11 @@ export default function CheckoutForm(props) {
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
+      <button
+        className="CheckoutForm-button"
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+      >
         <span id="button-text">
           {isLoading ? (
             <div className="spinner" id="spinner"></div>

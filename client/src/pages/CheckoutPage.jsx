@@ -9,7 +9,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 const CheckoutPage = () => {
   const [clientSecret, setClientSecret] = useState('');
   const location = useLocation();
-  const { price, user } = location.state;
+  const { price, id } = location.state;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -40,7 +40,7 @@ const CheckoutPage = () => {
     <div className="App">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm price={formatPrice(price)} />
+          <CheckoutForm price={formatPrice(price)} gameId={id} />
         </Elements>
       )}
     </div>
