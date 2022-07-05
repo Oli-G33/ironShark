@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { listGameData } from './../services/base';
 import GameCard from '../components/GameCard';
+import './HomePage.scss';
 
 const HomePage = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    listGameData().then(data => {
+    listGameData().then((data) => {
       setGames(data.games);
     });
   }, []);
@@ -15,13 +16,9 @@ const HomePage = () => {
     <div>
       <h1>IronShark</h1>
       <h2>Recently added</h2>
+
       {games
-        .map(game => (
-          // <ul >
-          //   <li>{game.title}</li>
-          // </ul>
-          <GameCard key={game._id} game={game} />
-        ))
+        .map((game) => <GameCard key={game._id} game={game} />)
         .slice(0, 10)}
     </div>
   );

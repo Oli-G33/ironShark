@@ -23,7 +23,6 @@ const Navbar = () => {
         </Link>
       </div>
       <div>
-        <Link to="/">Home</Link>
         {(user && (
           <>
             <img

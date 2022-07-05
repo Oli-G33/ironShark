@@ -50,7 +50,6 @@ const SingleGamePage = () => {
           {user && game.owner._id === user._id && (
             <button onClick={handleGameDelete}> Delete Game</button>
           )}
-          {user && <button>Bookmark</button>}
         </>
       )}
     </div>
