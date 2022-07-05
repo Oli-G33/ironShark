@@ -23,8 +23,14 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.patch('/', routeGuard, (req, res, next) => {
-  const { name, email, picture } = req.body;
-  User.findByIdAndUpdate(req.user._id, { name, email, picture }, { new: true })
+  console.log(req.body);
+  const { name, email, picture, gameList } = req.body;
+
+  User.findByIdAndUpdate(
+    req.user._id,
+    { name, email, picture, gameList: [...gameList, gameList] },
+    { new: true }
+  )
     .then((user) => {
       res.json({ profile: user });
     })

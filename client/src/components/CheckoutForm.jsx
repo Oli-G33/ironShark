@@ -30,6 +30,7 @@ export default function CheckoutForm(props) {
       switch (paymentIntent.status) {
         case 'succeeded':
           setMessage('Payment succeeded!');
+
           break;
         case 'processing':
           setMessage('Your payment is processing.');
@@ -59,7 +60,7 @@ export default function CheckoutForm(props) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: 'https://iron-shark.netlify.app/success'
+        return_url: '/success'
       }
     });
 
