@@ -18,11 +18,14 @@ const CheckoutPage = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ price })
     })
-      .then(res => res.json())
-      .then(data => setClientSecret(data.clientSecret));
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setClientSecret(data.clientSecret);
+      });
   }, [price]);
 
-  const formatPrice = price =>
+  const formatPrice = (price) =>
     new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR'
