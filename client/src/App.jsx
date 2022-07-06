@@ -21,7 +21,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    loadUserInformation().then(data => {
+    loadUserInformation().then((data) => {
       setUser(data.user);
     });
   }, []);

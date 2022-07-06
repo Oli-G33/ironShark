@@ -30,7 +30,6 @@ export default function CheckoutForm(props) {
       switch (paymentIntent.status) {
         case 'succeeded':
           setMessage('Payment succeeded!');
-
           break;
         case 'processing':
           setMessage('Your payment is processing.');
@@ -45,7 +44,7 @@ export default function CheckoutForm(props) {
     });
   }, [stripe]);
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!stripe || !elements) {

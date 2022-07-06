@@ -1,10 +1,10 @@
+import ImageInput from './ImageInput';
+
 const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
   const handleGameFormSubmission = (event) => {
     event.preventDefault();
     onGameSubmit();
   };
-  // let gameGenre;
-  // const [action, fighting] = gameGenre;
 
   return (
     <form onSubmit={handleGameFormSubmission}>
@@ -69,17 +69,47 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
           onGameChange({ ...game, cover: event.target.value })
         }
       />
+      <>
+        <label htmlFor="input-screenshots">Game screenshots</label>
+        <input
+          id="input-screenshots"
+          type="text"
+          placeholder="Game Screenshots"
 
-      <label htmlFor="input-screenshots">Game screenshots</label>
-      <input
-        id="input-screenshots"
-        type="text"
-        placeholder="Game Screenshots"
-        value={game.screenshots}
-        onChange={(event) =>
-          onGameChange({ ...game, screenshots: event.target.value })
-        }
-      />
+          // onChange={(event) =>
+          //   onGameChange({ ...game, screenshots: event.target.value })
+          // }
+        />
+        <ImageInput
+          image={game.screenshots[0]}
+          onImageChange={(screenshots) =>
+            onGameChange({
+              ...game,
+              screenshots: [...game.screenshots, screenshots]
+            })
+          }
+        />
+        <ImageInput
+          image={game.screenshots[1]}
+          onImageChange={(screenshots2) =>
+            onGameChange({
+              ...game,
+
+              screenshots: [...game.screenshots, screenshots2]
+            })
+          }
+        />
+        <ImageInput
+          image={game.screenshots[2]}
+          onChange={(screenshots3) =>
+            onGameChange({
+              ...game,
+
+              screenshots: [...game.screenshots, screenshots3]
+            })
+          }
+        />
+      </>
       <label htmlFor="input-trailer">Game trailer</label>
       <input
         id="input-trailer"

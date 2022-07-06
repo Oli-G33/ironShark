@@ -38,6 +38,12 @@ const SingleGamePage = () => {
           <h3>{game.gameUrl}</h3>
           <h3>{game.description}</h3>
           <h3>{game.genre}</h3>
+          {console.log(game.screenshots)}
+          {game.screenshots.map((value) => (
+            <img src={value} alt={value} />
+          ))}
+          {/* <img src={game.screenshots[0]} alt={game.screenshot} />
+          <img src={game.screenshots[1]} alt={game.screenshot} /> */}
           <h3>{formatPrice(game.price)}</h3>
           <ProfileCard profile={game.owner} />
           <Link to="/checkout" state={{ price: game.price }}>

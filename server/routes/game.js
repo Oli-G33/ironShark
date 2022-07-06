@@ -103,6 +103,7 @@ router.post('/', routeGuard, (req, res, next) => {
     screenshots,
     trailer
   } = req.body;
+  console.log(req.body);
   const owner = req.user._id;
   Game.create({
     title,
