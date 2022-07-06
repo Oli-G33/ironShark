@@ -7,7 +7,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
 import AddGamePage from './pages/AddGamePage';
 import EditGamePage from './pages/EditGamePage';
-import BookmarksPage from './pages/BookmarksPage';
+
 import SingleGamePage from './pages/SingleGamePage/SingleGamePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import SearchPage from './pages/SearchPage';
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/game/add" element={<AddGamePage />} />
-          <Route path="/bookmarks" element={<BookmarksPage />} />
+
           <Route path="/game/:id" element={<SingleGamePage />} />
           <Route path="/profile/edit" element={<ProfileEditPage />} />
           <Route path="/search" element={<SearchPage />} />
