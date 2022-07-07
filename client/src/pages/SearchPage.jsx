@@ -82,13 +82,12 @@ const SearchPage = () => {
               type="range"
               min="0"
               max={checkMax}
-              //value="1"
+              step="5"
               onChange={(event) => {
                 const number = event.target.value;
-
+                console.log(number);
                 setPrice(number);
               }}
-              step="5"
             />
           </label>
         </div>

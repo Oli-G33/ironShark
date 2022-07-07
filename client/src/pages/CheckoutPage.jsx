@@ -19,14 +19,7 @@ const CheckoutPage = () => {
       body: JSON.stringify({ price })
     })
       .then((res) => res.json())
-<<<<<<< HEAD
-      .then((data) => {
-        console.log(data);
-        setClientSecret(data.clientSecret);
-      });
-=======
       .then((data) => setClientSecret(data.clientSecret));
->>>>>>> 78e72ccfa3f6ee2ea177b5c384fa1260ad8f9779
   }, [price]);
 
   const formatPrice = (price) =>

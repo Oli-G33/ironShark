@@ -64,9 +64,18 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
         id="input-cover"
         type="text"
         placeholder="Game Cover"
-        value={game.cover}
-        onChange={(event) =>
-          onGameChange({ ...game, cover: event.target.value })
+        // value={game.cover}
+        // onChange={(event) =>
+        //   onGameChange({ ...game, cover: event.target.value })
+        // }
+      />
+      <ImageInput
+        image={game.cover}
+        onImageChange={(cover2) =>
+          onGameChange({
+            ...game,
+            cover: cover2
+          })
         }
       />
       <>
