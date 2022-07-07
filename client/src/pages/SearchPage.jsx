@@ -86,7 +86,7 @@ const SearchPage = () => {
           ))}
 
           <label>
-            Price
+            Price below {price} €
             <input
               id="typeinp"
               type="range"
@@ -147,7 +147,7 @@ const SearchPage = () => {
             ))}
 
             <label>
-              Price
+              Price below {price} €
               <input
                 id="typeinp"
                 type="range"

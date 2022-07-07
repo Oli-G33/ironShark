@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { gameSend } from '../services/games';
+
 import {
   PaymentElement,
   useStripe,
@@ -12,6 +14,9 @@ export default function CheckoutForm(props) {
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { gameUrl } = props;
+  console.log(gameUrl);
 
   useEffect(() => {
     if (!stripe) {
@@ -44,7 +49,7 @@ export default function CheckoutForm(props) {
     });
   }, [stripe]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -59,9 +64,12 @@ export default function CheckoutForm(props) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: 'http://localhost:3000/success'
+        return_url: `http://localhost:3000/success`
       }
     });
+
+    gameSend(gameUrl);
+    //const response = await gameSend(props.gameUrl);
 
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
@@ -77,7 +85,7 @@ export default function CheckoutForm(props) {
     setIsLoading(false);
   };
 
-  const formatPrice = price =>
+  const formatPrice = (price) =>
     new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR'
