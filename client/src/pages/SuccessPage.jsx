@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import styled from '@emotion/styled';
+import './SuccessPage.scss';
 
 const Success = () => {
   const [width, setWidth] = useState(0);
@@ -35,7 +36,11 @@ const Success = () => {
         <Title>Thank you for your purchase!</Title>
         <Message>You will receive a download link by email</Message>
         <Link to="/">
-          <button>Search more games!</button>
+          <button className="cyber-btn">
+            Search games!
+            <span>_</span>
+            <span className="cyber-glitch">Search more games!</span>
+          </button>
         </Link>
       </Container>
     </div>

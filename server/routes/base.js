@@ -10,6 +10,7 @@ const ImageKit = require('imagekit');
 // - GET - / - List games and profiles
 router.get('/', (req, res, next) => {
   let games;
+  //res.json({ message: 'success' });
 
   Game.find()
     // .limit(10)

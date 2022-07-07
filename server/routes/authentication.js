@@ -11,6 +11,7 @@ const router = new Router();
 
 router.post('/sign-up', (req, res, next) => {
   const { name, email, password, picture } = req.body;
+  console.log(name, email, password, picture);
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
@@ -38,6 +39,7 @@ router.post('/sign-up', (req, res, next) => {
         }
       });
 
+      req.session.userId = user._id;
       // send mail with defined transport object
       let mailOptions = {
         from: '"IronShark 🦈" <ironbabyshark@outlook.com>',
@@ -52,7 +54,6 @@ router.post('/sign-up', (req, res, next) => {
         }
         console.log('Message sent: %s', info.messageId);
       });
-      req.session.userId = user._id;
       res.json({ user });
     })
 
