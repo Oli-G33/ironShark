@@ -59,17 +59,9 @@ export default function CheckoutForm(props) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: '/success'
+        return_url: 'http://localhost:3000/success'
       }
     });
-
-    // Once the payment is confirmed => send Game ID to the Profile Page:
-
-    // if (!error) {
-    //   const gameID = { id: props.gameId };
-    // }
-
-    // export default gameID;
 
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
@@ -85,6 +77,12 @@ export default function CheckoutForm(props) {
     setIsLoading(false);
   };
 
+  const formatPrice = price =>
+    new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR'
+    }).format(price);
+
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
@@ -97,7 +95,7 @@ export default function CheckoutForm(props) {
           {isLoading ? (
             <div className="spinner" id="spinner"></div>
           ) : (
-            `Pay now ${props.price}`
+            `Pay  ${formatPrice(props.price)}`
           )}
         </span>
       </button>
