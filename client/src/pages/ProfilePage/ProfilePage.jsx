@@ -31,26 +31,42 @@ const ProfilePage = () => {
           />
           <h1>{profile.name}</h1>
           <h3>{profile.email}</h3>
-          <h1>Games created by {profile.name}</h1>
-          {games.map((game) => (
-            <ul key={game._id}>
-              <li>
-                <Link to={`/game/${game._id}`}>{game.title}</Link>
-              </li>
-            </ul>
-          ))}
-        </header>
-      )}
 
-      {user && user._id === id && (
-        <div>
-          <Link className="btn" to="/profile/edit">
-            Edit Profile
-          </Link>
-          <div>
-            <Link to="../game/add">Upload Game</Link>{' '}
+          {user && user._id === id && (
+            <div>
+              <Link className="btn" to="/profile/edit">
+                Edit Profile
+              </Link>
+              <div>
+                <Link to="../game/add">Upload Game</Link>{' '}
+              </div>
+            </div>
+          )}
+          <div className="games-wrapper">
+            <h1>Games created by {profile.name}</h1>
+            <div className="profile-games">
+              {games.map((game) => (
+                <ul className="li" key={game._id}>
+                  <div className="image">
+                    <img
+                      className="image__img"
+                      src={game.cover}
+                      alt={game.title}
+                    />
+                    <div className="image__overlay image__overlay--blur">
+                      <div className="image__title">
+                        <li className="li">
+                          <Link to={`/game/${game._id}`}>{game.title}</Link>
+                        </li>
+                      </div>
+                      <p className="image__description"></p>
+                    </div>
+                  </div>
+                </ul>
+              ))}
+            </div>
           </div>
-        </div>
+        </header>
       )}
     </div>
   );

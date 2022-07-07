@@ -3,6 +3,7 @@ import { listGameData } from './../services/base';
 import GameCard from '../components/GameCard';
 import SearchBox from '../components/SearchBox';
 import Form from 'react-bootstrap/Form';
+import './SearchPage.scss';
 
 const possibleGenres = [
   { label: 'Action', value: 'action' },
@@ -42,48 +43,55 @@ const SearchPage = () => {
   });
   return (
     <div>
-      <SearchBox
-        className="monsters-search-box"
-        onChangeHandler={onSearchChange}
-        placeholder="search games"
-      />
+      <div className="search-bar">
+        <SearchBox
+          className="game-search-box"
+          onChangeHandler={onSearchChange}
+          placeholder="search games"
+        />
+      </div>
       <br></br>
-      {filteredGames.map((game) => (
-        // <ul>
-        //   <li>{game.title}</li>
-        // </ul>
-        <GameCard key={game._id} game={game} />
-      ))}
-      {possibleGenres.map((genre) => (
-        <Form.Check
-          label={genre.label}
-          checked={genres.includes(genre.value)}
-          onChange={(event) => {
-            const checked = event.target.checked;
-            if (checked) {
-              setGenres([...genres, genre.value]);
-            } else {
-              setGenres(genres.filter((item) => item !== genre.value));
-            }
-          }}
-        />
-      ))}
-      <label>
-        Price
-        <input
-          id="typeinp"
-          type="range"
-          min="0"
-          max={checkMax}
-          //value="1"
-          onChange={(event) => {
-            const number = event.target.value;
 
-            setPrice(number);
-          }}
-          step="5"
-        />
-      </label>
+      <div className="content-container">
+        <div className="card-wrapper">
+          {filteredGames.map((game) => (
+            <GameCard key={game._id} game={game} />
+          ))}
+        </div>
+
+        <div className="game-filter">
+          {possibleGenres.map((genre) => (
+            <Form.Check
+              label={genre.label}
+              checked={genres.includes(genre.value)}
+              onChange={(event) => {
+                const checked = event.target.checked;
+                if (checked) {
+                  setGenres([...genres, genre.value]);
+                } else {
+                  setGenres(genres.filter((item) => item !== genre.value));
+                }
+              }}
+            />
+          ))}
+
+          <label>
+            Price
+            <input
+              id="typeinp"
+              type="range"
+              min="0"
+              max={checkMax}
+              step="5"
+              onChange={(event) => {
+                const number = event.target.value;
+                console.log(number);
+                setPrice(number);
+              }}
+            />
+          </label>
+        </div>
+      </div>
     </div>
   );
 };

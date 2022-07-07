@@ -16,10 +16,13 @@ const HomePage = () => {
     <div>
       <h1>IronShark</h1>
       <h2>Recently added</h2>
-
-      {games
-        .map((game) => <GameCard key={game._id} game={game} />)
-        .slice(0, 10)}
+      <div className="cards-home-container">
+        <div className="card-wrapper">
+          {games
+            .map((game) => <GameCard key={game._id} game={game} />)
+            .slice(0, 10)}
+        </div>
+      </div>
     </div>
   );
 };
