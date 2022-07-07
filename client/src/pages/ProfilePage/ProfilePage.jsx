@@ -42,28 +42,30 @@ const ProfilePage = () => {
               </div>
             </div>
           )}
-          <div className="games-wrapper">
+          <div className="profile-games-container">
             <h1>Games created by {profile.name}</h1>
-            <div className="profile-games">
-              {games.map((game) => (
-                <ul className="li" key={game._id}>
-                  <div className="image">
-                    <img
-                      className="image__img"
-                      src={game.cover}
-                      alt={game.title}
-                    />
-                    <div className="image__overlay image__overlay--blur">
-                      <div className="image__title">
-                        <li className="li">
-                          <Link to={`/game/${game._id}`}>{game.title}</Link>
-                        </li>
+            <div className="profile-games-wrapper">
+              <div className="profile-games">
+                {games.map((game) => (
+                  <ul className="li" key={game._id}>
+                    <div className="image">
+                      <img
+                        className="image__img"
+                        src={game.cover}
+                        alt={game.title}
+                      />
+                      <div className="image__overlay image__overlay--blur">
+                        <div className="image__title">
+                          <li className="li">
+                            <Link to={`/game/${game._id}`}>{game.title}</Link>
+                          </li>
+                        </div>
+                        <p className="image__description"></p>
                       </div>
-                      <p className="image__description"></p>
                     </div>
-                  </div>
-                </ul>
-              ))}
+                  </ul>
+                ))}
+              </div>
             </div>
           </div>
         </header>

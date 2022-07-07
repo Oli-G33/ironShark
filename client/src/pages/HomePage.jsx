@@ -14,13 +14,17 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>IronShark</h1>
+      <div className="hero-image">
+        <div className="hero-text">
+          <h1>IronShark</h1>
+        </div>
+      </div>
       <h2>Recently added</h2>
       <div className="cards-home-container">
         <div className="card-wrapper">
           {games
             .map((game) => <GameCard key={game._id} game={game} />)
-            .slice(0, 10)}
+            .slice(0, 12)}
         </div>
       </div>
     </div>

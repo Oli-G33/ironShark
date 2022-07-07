@@ -1,5 +1,6 @@
 .card-wrapper {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 
   .card-container {
@@ -8,7 +9,7 @@
     border-radius: 2px;
     margin-right: 1em;
     margin-bottom: 1em;
-    justify-content: space-between;
+    justify-content: space-evenly;
     transition: transform 200ms ease-in;
     background-color: grey;
 
