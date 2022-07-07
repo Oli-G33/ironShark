@@ -4,10 +4,18 @@ import { Link } from 'react-router-dom';
 const ProfileCard = ({ profile }) => (
   <Link className="profile-card" to={`/profile/${profile._id}`}>
     <img
-      src="https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+      src={
+        profile.picture
+          ? profile.picture
+          : 'https://ik.imagekit.io/p8y8zbsn1/DefaultUserImg_1l2AFbn9k.png?ik-sdk-version=javascript-1.4.3&updatedAt=1657224510614'
+      }
       alt={profile.name}
+      width="200"
+      height="200"
     />
-    <span>{profile.name}</span>
+    <span>Creator :</span>
+    <span> {profile.name}</span>
+    {console.log(profile)}
   </Link>
 );
 

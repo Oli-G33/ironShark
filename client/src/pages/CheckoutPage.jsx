@@ -18,8 +18,8 @@ const CheckoutPage = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ price, gameTitle })
     })
-      .then(res => res.json())
-      .then(data => setClientSecret(data.clientSecret));
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
   }, [price, gameTitle]);
 
   const appearance = {

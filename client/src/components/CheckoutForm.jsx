@@ -77,7 +77,7 @@ export default function CheckoutForm(props) {
     setIsLoading(false);
   };
 
-  const formatPrice = price =>
+  const formatPrice = (price) =>
     new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR'
