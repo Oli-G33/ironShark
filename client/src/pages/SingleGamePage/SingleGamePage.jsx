@@ -5,6 +5,7 @@ import AuthenticationContext from '../../context/authentication';
 import ProfileCard from '../../components/ProfileCard';
 import { gameLoad } from '../../services/games';
 import { gameDelete } from '../../services/games';
+import './SingleGamePage.scss';
 
 const formatPrice = (price) =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
@@ -34,28 +35,37 @@ const SingleGamePage = () => {
     <div>
       {game && (
         <>
-          <h1>{game.title}</h1>
-          <h3>{game.gameUrl}</h3>
-          <h3>{game.description}</h3>
-          <h3>{game.genre}</h3>
-          {console.log(game.screenshots)}
-          {game.screenshots.map((value) => (
-            <img src={value} alt={value} />
-          ))}
-          {/* <img src={game.screenshots[0]} alt={game.screenshot} />
-          <img src={game.screenshots[1]} alt={game.screenshot} /> */}
-          <h3>{formatPrice(game.price)}</h3>
-          <ProfileCard profile={game.owner} />
-          <Link to="/checkout" state={{ price: game.price }}>
-            <button>Buy Now</button>
-          </Link>
-          {user && game.owner._id === user._id && (
-            <Link to={`/game/${id}/edit`}> Edit Game</Link>
-          )}
+          <div className="summary-container">
+            <div className="summary-text">
+              <h1>{game.title}</h1>
+              <h3>{game.genre}</h3>
+              <h3>{game.gameUrl}</h3>
+              <div className="buy-button">
+                <h3>{formatPrice(game.price)}</h3>
+                <Link to="/checkout" state={{ price: game.price }}>
+                  <button>Buy Now</button>
+                </Link>
+              </div>
+              <h3>{game.description}</h3>
+            </div>
 
-          {user && game.owner._id === user._id && (
-            <button onClick={handleGameDelete}> Delete Game</button>
-          )}
+            <div className="game-screenshots">
+              {game.screenshots.map((value) => (
+                <img src={value} alt={value} />
+              ))}
+            </div>
+          </div>
+
+          <div className="action-button">
+            {user && game.owner._id === user._id && (
+              <Link to={`/game/${id}/edit`}> Edit Game</Link>
+            )}
+
+            {user && game.owner._id === user._id && (
+              <button onClick={handleGameDelete}> Delete Game</button>
+            )}
+            <ProfileCard profile={game.owner} />
+          </div>
         </>
       )}
     </div>

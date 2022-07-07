@@ -15,9 +15,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="hero-image">
-        <div className="hero-text">
-          <h1>IronShark</h1>
-        </div>
+        <div className="hero-text"></div>
       </div>
       <h2>Recently added</h2>
       <div className="cards-home-container">

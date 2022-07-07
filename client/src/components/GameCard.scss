@@ -5,17 +5,17 @@
 
   .card-container {
     overflow: hidden;
-    box-shadow: 0 2px 20px yellow;
+    box-shadow: 0 2px 20px red;
     border-radius: 2px;
     margin-right: 1em;
     margin-bottom: 1em;
     justify-content: space-evenly;
     transition: transform 200ms ease-in;
-    background-color: grey;
+    background-color: #464545;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 2px 20px lightblue;
+      box-shadow: 0 2px 20px blue;
     }
 
     .card-image,
@@ -42,12 +42,12 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        background-color: #4caf50; /* Green */
+        background-color: #4caf50;
         color: white;
         transition-duration: 0.4s;
 
         &:hover {
-          background-color: #13b7e9; /* Green */
+          background-color: #13b7e9;
           color: white;
         }
       }
