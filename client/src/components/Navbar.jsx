@@ -15,22 +15,20 @@ const Navbar = () => {
     });
   };
   return (
-    <nav>
-      <div>
-        <Link to="/">
-          {' '}
-          <img id="logo-img" src="./../../Logo17.png" alt="GameShark" />
-        </Link>
-      </div>
-      <div>
+    <nav className="navigation">
+      <Link className="Home-link" to="/">
+        {' '}
+        <img className="shark-logo" src="./../../Logo17.png" alt="GameShark" />
+      </Link>
+      <div className="pages-link">
+        <Link to="/search">Browse Games</Link>
         {(user && (
           <>
             <img
-              id="nav-img"
+              className="user-image"
               src={user.picture || './../../DefaultUserImg.png'}
               alt={user.name}
             />
-            <Link to="/search">Browse Games</Link>
             <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
 
             <button onClick={handleSignOut}>Sign Out</button>
