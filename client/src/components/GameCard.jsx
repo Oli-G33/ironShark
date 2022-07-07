@@ -5,7 +5,7 @@ import './GameCard.scss';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 
-const formatPrice = (price) =>
+const formatPrice = price =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
     price
   );
@@ -31,12 +31,19 @@ const GameCard = ({ game }) => {
           <Card.Text>{`${game.genre} `}</Card.Text>
           <Card.Text>{game.price > 0 && formatPrice(game.price)}</Card.Text>
           {(user && (
-            <Link to="/checkout" state={{ price: game.price, id: game._id }}>
-              <button variant="primary">Buy Now</button>
+            <Link
+              to="/checkout"
+              state={{ price: game.price, gameTitle: game.title }}
+            >
+              <button className="nav-button" variant="primary">
+                Buy Now
+              </button>
             </Link>
           )) || (
             <Link to="/sign-up">
-              <button variant="primary">Buy Now</button>
+              <button className="nav-button" variant="primary">
+                Buy Now
+              </button>
             </Link>
           )}
         </Card.Body>

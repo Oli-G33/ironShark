@@ -33,7 +33,9 @@ const Navbar = () => {
             <Link to="/search">Browse Games</Link>
             <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
 
-            <button onClick={handleSignOut}>Sign Out</button>
+            <button className="glow-on-hover" onClick={handleSignOut}>
+              Sign Out
+            </button>
           </>
         )) || (
           <>
