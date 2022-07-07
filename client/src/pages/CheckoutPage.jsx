@@ -9,27 +9,21 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 const CheckoutPage = () => {
   const [clientSecret, setClientSecret] = useState('');
   const location = useLocation();
-  const { price, id } = location.state;
+  const { price, gameTitle } = location.state;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch('http://localhost:3010/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ price })
+      body: JSON.stringify({ price, gameTitle })
     })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, [price]);
-
-  const formatPrice = (price) =>
-    new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(price);
+      .then(res => res.json())
+      .then(data => setClientSecret(data.clientSecret));
+  }, [price, gameTitle]);
 
   const appearance = {
-    theme: 'flat'
+    theme: 'night'
   };
   const options = {
     clientSecret,
@@ -40,7 +34,7 @@ const CheckoutPage = () => {
     <div className="App">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm price={formatPrice(price)} gameId={id} />
+          <CheckoutForm price={price} gameTitle={gameTitle} />
         </Elements>
       )}
     </div>

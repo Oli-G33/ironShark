@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import AuthenticationContext from '../context/authentication';
 import './GameCard.scss';
 
-const formatPrice = (price) =>
+const formatPrice = price =>
   new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(
     price
   );
@@ -27,12 +27,19 @@ const GameCard = ({ game }) => {
         <p>{game.price > 0 && formatPrice(game.price)}</p>
         <div className="btn-buy-container">
           {(user && (
-            <Link to="/checkout" state={{ price: game.price, id: game._id }}>
-              <button variant="primary">Buy Now</button>
+            <Link
+              to="/checkout"
+              state={{ price: game.price, gameTitle: game.title }}
+            >
+              <button className="nav-button" variant="primary">
+                Buy Now
+              </button>
             </Link>
           )) || (
             <Link to="/sign-up">
-              <button variant="primary">Buy Now</button>
+              <button className="nav-button" variant="primary">
+                Buy Now
+              </button>
             </Link>
           )}
         </div>

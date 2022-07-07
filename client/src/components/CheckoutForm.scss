@@ -26,7 +26,7 @@ form {
 }
 
 #payment-message {
-  color: rgb(105, 115, 134);
+  color: #5469d4;
   font-size: 16px;
   line-height: 20px;
   padding-top: 12px;
@@ -132,4 +132,8 @@ button:disabled {
     width: 80vw;
     min-width: initial;
   }
+}
+
+#payment-form {
+  background-color: #ffffff;
 }
