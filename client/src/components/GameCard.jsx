@@ -29,7 +29,11 @@ const GameCard = ({ game }) => {
           {(user && (
             <Link
               to="/checkout"
-              state={{ price: game.price, gameTitle: game.title }}
+              state={{
+                price: game.price,
+                gameTitle: game.title,
+                gameUrl: game.gameUrl
+              }}
             >
               <button className="nav-button" variant="primary">
                 Buy Now
