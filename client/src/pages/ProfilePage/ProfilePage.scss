@@ -1,7 +1,6 @@
 .profile-page {
-  margin: auto;
+  text-align: center;
 }
-
 .profile-page,
 a {
   text-decoration: none;
@@ -9,16 +8,19 @@ a {
   // background-color: ;
 }
 .profile-games {
-  margin: 0px 8.5em;
+  //margin: 0px 8.5em;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .profile-games-wrapper {
-  display: flex;
+  /*display: flex;
   flex-wrap: wrap;
+  flex-direction: row;*/
 
   .image {
     position: relative;
-    width: 400px;
+    width: 180px;
   }
 
   .image__img {
@@ -74,5 +76,8 @@ a {
 
   .li ul {
     display: inline;
+  }
+  a {
+    color: #ffffff;
   }
 }

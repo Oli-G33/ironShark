@@ -37,16 +37,35 @@ const SingleGamePage = () => {
         <>
           <div className="summary-container">
             <div className="summary-text">
-              <h1>{game.title}</h1>
+              <div className="game-action">
+                <h1>{game.title}</h1>
+
+                <div className="action-button">
+                  {user && game.owner._id === user._id && (
+                    <Link to={`/game/${id}/edit`} className="button-size">
+                      {' '}
+                      Edit Game
+                    </Link>
+                  )}
+
+                  {user && game.owner._id === user._id && (
+                    <button onClick={handleGameDelete} className="button-size">
+                      {' '}
+                      Delete Game
+                    </button>
+                  )}
+                </div>
+              </div>
               <h3>{game.genre}</h3>
               <h3>{game.gameUrl}</h3>
               <div className="buy-button">
                 <h3>{formatPrice(game.price)}</h3>
                 <Link to="/checkout" state={{ price: game.price }}>
-                  <button>Buy Now</button>
+                  <button className="button-size">Buy Now</button>
                 </Link>
               </div>
               <h3>{game.description}</h3>
+              <ProfileCard profile={game.owner} />
             </div>
 
             <div className="game-screenshots">
@@ -54,17 +73,6 @@ const SingleGamePage = () => {
                 <img src={value} alt={value} />
               ))}
             </div>
-          </div>
-
-          <div className="action-button">
-            {user && game.owner._id === user._id && (
-              <Link to={`/game/${id}/edit`}> Edit Game</Link>
-            )}
-
-            {user && game.owner._id === user._id && (
-              <button onClick={handleGameDelete}> Delete Game</button>
-            )}
-            <ProfileCard profile={game.owner} />
           </div>
         </>
       )}
