@@ -51,6 +51,7 @@ export default function CheckoutForm(props) {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    gameSend(gameUrl).then(data => console.log(data));
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
@@ -68,7 +69,6 @@ export default function CheckoutForm(props) {
       }
     });
 
-    gameSend(gameUrl);
     //const response = await gameSend(props.gameUrl);
 
     // This point will only be reached if there is an immediate error when
@@ -85,7 +85,7 @@ export default function CheckoutForm(props) {
     setIsLoading(false);
   };
 
-  const formatPrice = (price) =>
+  const formatPrice = price =>
     new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR'

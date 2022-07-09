@@ -8,21 +8,22 @@ const routeGuard = require('./../middleware/route-guard');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require('nodemailer');
 
-router.post('/success', (req, res, next) => {
+router.post('/success', (req, res) => {
   const { gameUrl } = req.body;
-  console.log('HELLO FROM THE BODY');
+  console.log('NUMBER 1', gameUrl);
+  console.log('NUMBER 2', req.query);
   const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-      user: 'pauline.thiel8@ethereal.email',
-      pass: 'n4pTzJ8z9QAVyVNpYn'
+      user: 'tremaine.ferry@ethereal.email',
+      pass: 'zQ1a14fVXDbMNtJjmV'
     }
   });
 
   let mailOptions = {
-    from: '"IronShark 🦈" <pauline.thiel8@ethereal.email>',
-    to: `pauline.thiel8@ethereal.email`,
+    from: '"IronShark 🦈" <ironbabyshark@outlook.com>',
+    to: `tremaine.ferry@ethereal.email`,
     subject: 'Your Download Link',
     text: `Thank you for your purchase. Please click here to download your game!: ${gameUrl}`
   };

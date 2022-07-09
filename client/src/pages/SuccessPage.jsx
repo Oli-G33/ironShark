@@ -33,15 +33,19 @@ const Success = () => {
     <div>
       <Container>
         <Confetti width={width} height={height} numberOfPieces={400} />
-        <Title>Thank you for your purchase!</Title>
-        <Message>You will receive a download link by email</Message>
-        <Link to="/">
-          <button className="cyber-btn">
-            Search games!
-            <span>_</span>
-            <span className="cyber-glitch">Search more games!</span>
-          </button>
-        </Link>
+        <Title className="success-page">Thank you for your purchase!</Title>
+        <Message className="success-page">
+          You will receive a download link by email
+        </Message>
+        <div>
+          <Link to="/">
+            <button className="cyber-btn">
+              Search games!
+              <span>_</span>
+              <span className="cyber-glitch">Search more games!</span>
+            </button>
+          </Link>
+        </div>
       </Container>
     </div>
   );
