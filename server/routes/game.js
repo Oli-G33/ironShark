@@ -15,7 +15,7 @@ router.post('/success', (req, res) => {
   console.log(email);
 
   const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
+    host: 'smtp.office365.com',
     port: 587,
     auth: {
       user: 'ironBerliner333@outlook.com',
