@@ -30,11 +30,11 @@ router.post('/sign-up', (req, res, next) => {
     )
     .then((user) => {
       let transport = nodemailer.createTransport({
-        host: 'smtp.office365.com',
+        host: process.env.OUTLOOK_SMTP,
         port: 587,
         auth: {
-          user: 'ironBerliner333@outlook.com',
-          pass: '119331Ng!'
+          user: process.env.OUTLOOK_EMAIL,
+          pass: process.env.OUTLOOK_PASS
         }
       });
 
