@@ -15,16 +15,16 @@ router.post('/success', (req, res) => {
   console.log(email);
 
   const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'smtp-mail.outlook.com',
     port: 587,
     auth: {
-      user: 'tremaine.ferry@ethereal.email',
-      pass: 'zQ1a14fVXDbMNtJjmV'
+      user: 'ironBerliner333@outlook.com',
+      pass: '119331Ng!'
     }
   });
 
   let mailOptions = {
-    from: '"IronShark 🦈" <tremaine.ferry@ethereal.email>',
+    from: '"IronShark 🦈" <ironBerliner333@outlook.com>',
     to: email,
     subject: 'Your Download Link',
     text: `Thank you for your purchase. Please click here to download your game!: ${decodeURI(
@@ -38,6 +38,7 @@ router.post('/success', (req, res) => {
     }
     console.log('Message sent: %s', info.messageId);
     res.json({ info: info.messageId });
+    console.log(mailOptions);
   });
   //req.session.userId = user._id;
 });
