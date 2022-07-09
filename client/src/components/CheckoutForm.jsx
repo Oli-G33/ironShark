@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { gameSend } from '../services/games';
+import AuthenticationContext from '../context/authentication';
 
 import {
   PaymentElement,
@@ -11,6 +12,7 @@ import './CheckoutForm.scss';
 export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
+  const { user } = useContext(AuthenticationContext);
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +53,7 @@ export default function CheckoutForm(props) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    gameSend(gameUrl).then(data => console.log(data));
+    gameSend(gameUrl, user).then(data => console.log(data));
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.

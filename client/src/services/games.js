@@ -26,5 +26,5 @@ export const bookmarkAdd = id =>
 export const bookmarkDelete = id =>
   api.delete(`/game/${id}/bookmark`).then(response => response.data);
 
-export const gameSend = gameUrl =>
-  api.post(`/game/success`, { gameUrl }).then(response => response.data);
+export const gameSend = (gameUrl, user) =>
+  api.post(`/game/success`, { gameUrl, user }).then(response => response.data);
