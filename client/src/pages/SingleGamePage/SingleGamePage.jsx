@@ -5,6 +5,8 @@ import AuthenticationContext from '../../context/authentication';
 import ProfileCard from '../../components/ProfileCard';
 import { gameLoad } from '../../services/games';
 import { gameDelete } from '../../services/games';
+import ReactPlayer from 'react-player';
+
 import './SingleGamePage.scss';
 
 const formatPrice = (price) =>
@@ -57,7 +59,7 @@ const SingleGamePage = () => {
                 </div>
               </div>
               <h3>{game.genre}</h3>
-              <h3>{game.gameUrl}</h3>
+
               <div className="buy-button">
                 <h3>{formatPrice(game.price)}</h3>
                 <Link to="/checkout" state={{ price: game.price }}>
@@ -65,6 +67,9 @@ const SingleGamePage = () => {
                 </Link>
               </div>
               <h3>{game.description}</h3>
+              <h3>Trailer</h3>
+              <ReactPlayer url={game.trailer} />
+              {console.log(game.trailer)}
               <ProfileCard profile={game.owner} />
             </div>
 

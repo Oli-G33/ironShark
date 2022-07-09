@@ -22,7 +22,7 @@ const schema = new mongoose.Schema(
 
     genre: {
       type: String,
-      enum: ['action', 'horror', 'adventure', 'racing', 'fighting', 'sports'],
+      enum: ['Action', 'Horror', 'Adventure', 'Racing', 'Fighting', 'Sports'],
       require: true
     },
 

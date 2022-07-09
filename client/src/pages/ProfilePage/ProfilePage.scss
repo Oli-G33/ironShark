@@ -4,9 +4,15 @@
 .profile-page,
 a {
   text-decoration: none;
+  color: #f2f2f2;
   // padding: 5%;
   // background-color: ;
 }
+
+a:hover {
+  color: yellow;
+}
+
 .profile-games {
   //margin: 0px 8.5em;
   display: grid;

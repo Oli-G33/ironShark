@@ -30,7 +30,6 @@ const ProfilePage = () => {
             alt={profile.name}
           />
           <h1>{profile.name}</h1>
-          <h3>{profile.email}</h3>
 
           {user && user._id === id && (
             <div>

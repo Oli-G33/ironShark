@@ -41,12 +41,12 @@ const GameForm = ({ game, onGameChange, onGameSubmit, buttonLabel }) => {
           }
         >
           <option>Select Genre</option>
-          <option value="action">Action</option>
-          <option value="horror">Horror</option>
-          <option value="adventure">Adventure</option>
-          <option value="racing">Racing</option>
-          <option value="fighting">Fighting</option>
-          <option value="sports">Sports</option>
+          <option value="Action">Action</option>
+          <option value="Horror">Horror</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Racing">Racing</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Sports">Sports</option>
         </select>
 
         <label htmlFor="input-price">Game's price</label>
