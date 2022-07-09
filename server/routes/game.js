@@ -11,6 +11,7 @@ const nodemailer = require('nodemailer');
 router.post('/success', (req, res) => {
   const { gameUrl, user } = req.body;
   const email = user.email;
+  const game = encodeURI(gameUrl);
   console.log(email);
 
   const transporter = nodemailer.createTransport({
@@ -26,8 +27,8 @@ router.post('/success', (req, res) => {
     from: '"IronShark 🦈" <tremaine.ferry@ethereal.email>',
     to: email,
     subject: 'Your Download Link',
-    text: `Thank you for your purchase. Please click here to download your game!: ${encodeURI(
-      gameUrl
+    text: `Thank you for your purchase. Please click here to download your game!: ${decodeURI(
+      game
     )}`
   };
 
