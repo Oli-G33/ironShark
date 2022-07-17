@@ -41,7 +41,7 @@ router.post('/sign-up', (req, res, next) => {
       req.session.userId = user._id;
       // send mail with defined transport object
       let mailOptions = {
-        from: '"IronShark 🦈" <tremaine.ferry@ethereal.email>',
+        from: '"IronShark 🦈" <info@ironshark.com>',
         to: `${user.email}`,
         subject: 'Welcome to IronShark',
         text: `Hello ${user.name}, \n\nWe're delighted to inform you that your account has been successfully created.\n\n\n You now can start browsing our games selection by clicking on the link below:\n http://www.iron-shark.netlify.com`

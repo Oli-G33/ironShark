@@ -7,6 +7,7 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars');
 
 router.post('/success', (req, res) => {
   const { gameUrl, user } = req.body;
@@ -23,13 +24,22 @@ router.post('/success', (req, res) => {
     }
   });
 
+  // transporter.use(
+  //   'compile',
+  //   hbs({
+  //     viewEngine: 'express-handlebars',
+  //     viewPath: 'server/./../views'
+  //   })
+  // );
+
   let mailOptions = {
-    from: '"IronShark 🦈" <ironBerliner333@outlook.com>',
+    from: '"IronShark 🦈" <info@ironshark.com>',
     to: email,
     subject: 'Your Download Link',
     text: `Thank you for your purchase. Please click here to download your game!: ${decodeURI(
       game
     )}`
+    // template: 'gamelink'
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

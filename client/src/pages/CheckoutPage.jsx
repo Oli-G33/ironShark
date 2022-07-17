@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './../components/CheckoutForm';
 import { useLocation } from 'react-router-dom';
+import './CheckoutPage.scss';
 
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
@@ -18,8 +19,8 @@ const CheckoutPage = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ price, gameTitle })
     })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then(res => res.json())
+      .then(data => setClientSecret(data.clientSecret));
   }, [price, gameTitle]);
 
   const appearance = {
@@ -37,6 +38,13 @@ const CheckoutPage = () => {
           <CheckoutForm price={price} gameTitle={gameTitle} gameUrl={gameUrl} />
         </Elements>
       )}
+      <div>
+        <p id="checkoutSmall">
+          {' '}
+          Tip: You can use the test card number 4242 4242 4242 4242, a random
+          future expiration date, plus any 3 digit security code
+        </p>
+      </div>
     </div>
   );
 };
