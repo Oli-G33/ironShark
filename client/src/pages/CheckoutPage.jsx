@@ -14,7 +14,7 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch('http://localhost:3010/create-payment-intent', {
+    fetch('https://iron-shark.herokuapp.com/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ price, gameTitle })

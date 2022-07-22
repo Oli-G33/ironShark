@@ -18,7 +18,6 @@ export default function CheckoutForm(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   const { gameUrl } = props;
-  console.log(gameUrl);
 
   useEffect(() => {
     if (!stripe) {
