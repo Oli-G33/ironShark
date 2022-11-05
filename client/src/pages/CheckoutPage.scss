@@ -4,3 +4,9 @@
   color: aquamarine;
   text-align: center;
 }
+
+@media (max-width: 390px) {
+  body {
+    background-color: aqua;
+  }
+}
